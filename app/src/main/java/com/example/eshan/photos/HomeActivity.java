@@ -3,8 +3,10 @@ package com.example.eshan.photos;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -382,6 +384,29 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+        alertDlg.setMessage("Are you sure you want to exit?");
+        alertDlg.setCancelable(false);
+        alertDlg.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+        public void onClick(DialogInterface dialog, int id) {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory( Intent.CATEGORY_HOME );
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+            finish();
+
+        }});
+
+        alertDlg.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        @Override
+            public void onClick(DialogInterface dialog, int which) {}});
+
+        alertDlg.create().show();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle
         // If it returns true, then it has handled
@@ -390,7 +415,13 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
             return true;
         }
 
+
+
         switch(item.getItemId()){
+            case android.R.id.home:
+                Toast.makeText(getApplicationContext(), "logging out", Toast.LENGTH_SHORT).show();
+                return true;
+
             case R.id.action_settings:
                 //Toast.makeText(getApplicationContext(), "logging out", Toast.LENGTH_SHORT).show();
 
