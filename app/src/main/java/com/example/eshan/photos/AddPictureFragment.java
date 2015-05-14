@@ -1,12 +1,14 @@
 package com.example.eshan.photos;
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.raweng.built.Built;
+import com.raweng.built.BuiltApplication;
 import com.raweng.built.BuiltError;
 import com.raweng.built.BuiltFile;
 import com.raweng.built.BuiltFileUploadCallback;
@@ -23,6 +27,7 @@ import com.raweng.built.BuiltObject;
 import com.raweng.built.BuiltResultCallBack;
 
 import java.io.File;
+import java.net.URI;
 
 
 public class AddPictureFragment extends Fragment implements View.OnClickListener {
@@ -43,7 +48,7 @@ public class AddPictureFragment extends Fragment implements View.OnClickListener
     Uri selectedImagePath;
     private final static String TAG_SELECT_BUTTON  = "select_pic";
     private final static String TAG_ADD_BUTTON  = "add_pic";
-    BuiltUIPickerController pickerObject = null;
+
 //    private OnFragmentInteractionListener mListener;
 
     /**
@@ -108,67 +113,76 @@ public class AddPictureFragment extends Fragment implements View.OnClickListener
             Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, 1);
         }else if(v.getTag().equals(TAG_ADD_BUTTON)){
-                Log.i("Status","Inside add pic button called");
+                Log.i("Status", "Inside add pic button called");
                 final BuiltFile file = new BuiltFile();
+
+               // BuiltApplication builtApplication = Built.initializeWithApiKey(this,"blt643f5d49ff2042cb", "0000011");
+            file.setApplication("blt643f5d49ff2042cb", "0000011");
                 File file1 = new File(getRealPathFromURI(selectedImagePath));
-                Log.i("file name",file1.toString());
-                file.setFile(file1.getPath());
-                file.save(new BuiltFileUploadCallback() {
-                    @Override
-                    public void onSuccess() {
-                        Log.i("uid",file.getUploadUid().toString());
+            try {
+                Log.i("file name Eshan", file1.getPath());
+            }catch(Exception e){}
+            //file.setFile(file1.getPath());
+            URI uri = URI.create(file1.getPath());
+            file.setFile(uri.getPath());
+            //Log.i("file name ashishshshsh", uri.getPath());
+            file.save(new BuiltFileUploadCallback() {
+                @Override
+                public void onSuccess() {
+                    Log.i("uid", file.getUploadUid().toString());
 
-                        BuiltObject pictureObject = new BuiltObject("picture");
-                        //albumObject.setApplication("blt643f5d49ff2042cb", "0000011");
-                        Object objPicName = picName.getText();
-                        pictureObject.set("name",objPicName);
-                        Object objPicCaption = picCaption.getText();
-                        pictureObject.set("caption",objPicCaption);
-                        Object objPicLocation = picLocation.getText();
-                        pictureObject.set("location",objPicLocation);
-                        Object email = HomeActivity.useremail;
-                        pictureObject.set("email",email);
-                        Object objAlbumName = albumName;
-                        pictureObject.set("album",objAlbumName);
-                        Object objFileUid = file.getUploadUid();
-                        pictureObject.set("image",objFileUid);
+                    BuiltObject pictureObject = new BuiltObject("picture");
+                    //albumObject.setApplication("blt643f5d49ff2042cb", "0000011");
+                    Object objPicName = picName.getText();
+                    pictureObject.set("name", objPicName);
+                    Object objPicCaption = picCaption.getText();
+                    pictureObject.set("caption", objPicCaption);
+                    Object objPicLocation = picLocation.getText();
+                    pictureObject.set("location", objPicLocation);
+                    Object email = HomeActivity.useremail;
+                    pictureObject.set("email", email);
+                    Object objAlbumName = albumName;
+                    pictureObject.set("album", objAlbumName);
+                    Object objFileUid = file.getUploadUid();
+                    pictureObject.set("image", objFileUid);
 
-                        pictureObject.save(new BuiltResultCallBack() {
-                            @Override
-                            public void onSuccess() {
-                                AlbumFragment albumFragment = new AlbumFragment();
-                                FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
-                                transaction.replace(R.id.mainContent,albumFragment);
-                                transaction.commit();
-                                Toast.makeText(getActivity(), "Picture added successfully.", Toast.LENGTH_SHORT).show();
-                            }
+                    pictureObject.save(new BuiltResultCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            AlbumFragment albumFragment = new AlbumFragment();
+                            FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.mainContent, albumFragment);
+                            transaction.commit();
+                            Toast.makeText(getActivity(), "Picture added successfully.", Toast.LENGTH_SHORT).show();
+                        }
 
-                            @Override
-                            public void onError(BuiltError builtError) {
-                                Toast.makeText(getActivity(), "Operation failed.Please try again!", Toast.LENGTH_SHORT).show();
-                            }
+                        @Override
+                        public void onError(BuiltError builtError) {
+                            Toast.makeText(getActivity(),builtError.getErrorMessage() , Toast.LENGTH_SHORT).show();
+                            Log.d("file error message",builtError.getErrorMessage());
+                        }
 
-                            @Override
-                            public void onAlways() {
+                        @Override
+                        public void onAlways() {
 
-                            }
-                        });
-                    }
+                        }
+                    });
+                }
 
-                    @Override
-                    public void onProgress(int i) {
-                        Log.i("progress"," "+i);
-                    }
+                @Override
+                public void onProgress(int i) {
+                    Log.i("progress", " " + i);
+                }
 
-                    @Override
-                    public void onError(BuiltError builtError) {
-                        Log.i("error",builtError.getErrorMessage());
-                    }
+                @Override
+                public void onError(BuiltError builtError) {
+                    Log.i("error", builtError.getErrorMessage());
+                }
 
-                    @Override
-                    public void onAlways() {
+                @Override
+                public void onAlways() {
 
-                    }
+                }
                 });
 
         }

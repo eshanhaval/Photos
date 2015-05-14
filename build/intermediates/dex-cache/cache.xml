@@ -2,200 +2,200 @@
 <items version="2" >
 
     <item
-        jar="/root/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-3d55f01eb05961076fb5552dc6085f13f92950ab.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/src/main/java/lib/built.io-1.0.0.27.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="35b4fcce7a331e53936186dc9a3d422313137da0">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/built.io-1.0.0.27-2b836f0931a1704324fe718f4811102f6d0127b8.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/src/main/java/lib/android-smart-image-view-1.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d76ea8c3e9a60101244d6d04aff8cc75888570f0">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/android-smart-image-view-1.0.0-a947cb70939bd4015a10ac0519b1db3e4fee4c59.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-1dd29a3e91a0fc3185c38118bffcb1eeccd020c5.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-af538d5587c2dd9e2ce1c45ec7e3b8639a82b2e5.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-a676b2bd3e7a9299906615b80449cb10406444d1.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-ce23e8755658d56279102ee5defb8268cfc08ae9.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-aa5781727f730bd85f6c73ff8f141f00fecdbdab.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-4a791ac2775796f2579db43f3125e08f310ba300.jar" />
-    </item>
-    <item
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.2-61ff229e5ff4052e0b3f91795570d0761a099cb5.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-cffe87f4ba5891f42c37ba26432d4d832938f20c.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-c116b9b7699bd54db4768cde3ef8b67d98dd23e3.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-c0e660ab91295f32198f4e57313a4ee0205172d6.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/classes.jar"
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-3b5111589b3405057f2c4f279568f0267aafe45b.jar" />
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-e139acbc96b780bb3ec765d8d86112602ec4781e.jar" />
     </item>
     <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-d8b18125a6875df0cefce36c9a8834856ee1ffd2.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-e4c566458cb0422fc4ffae411f04034fafbefb13.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/Photos/facebook/unspecified/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81996331a0289f6d0950fb3796f513bb11888fe4">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-6a635a18d98747a62f94601f0ac281fd1f682fb0.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-4d86751d540a30f866365d81c468d98ef993d114.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-a40def4ccf57dec2913f0466f3fcbc55035e89d3.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-5dd894bbe3ad1e24c8e9dea8d362a4c32c781dbe.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-b05f7aaec8447b8f89bbde639846616ec51d7187.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-63c0a836699ef457bbc6bbc5279c9458339aaa7c.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="607d961caf1a59b6e782724654c1f3229e036c20">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-a515b4c81680aacba129761ea46d0ce457b869fa.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-7c0a054157961f48171e40a734397d5cc7462f60.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-8f8cc2c980a03ff33f6b8e3bfb3768d8e623d1c9.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-67a9db7d4e91a0fcee24adb541e1bf42dd00f17e.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-531e670da24e501b3a7738ff10f698cc6df4b556.jar" />
-    </item>
-    <item
-        jar="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/classes.jar"
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="/home/devandra/AndroidWorkspace/Photos/app/build/intermediates/pre-dexed/debug/classes-d77019db30f18efd32372c2c280f15179f048abb.jar" />
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-586b21791408b8a20b3ef5a756ae8610c854105a.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-e9c59b1c7a083c3198c8f8a5e916e0ba65286fa9.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-416fac9aba9e1e4d70ea4e0628400debd18809d6.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-5e6d3cc438f334e8c145f0d8dde7d7b61607de77.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-f7b8c26361ce8300e4fa9ded692fcf0361c2319d.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-815c1815443ebe40d3bc7e6b80b451a2b1afdb65.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/src/main/java/lib/android-smart-image-view-1.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d76ea8c3e9a60101244d6d04aff8cc75888570f0">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/android-smart-image-view-1.0.0-4d11ee0a7567875003950da083473a1a9cca06d4.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-4a62f6583c279ee48b121b4fb9d57543cc2d0b9a.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-151137cb9f80024bd2b9aa0f080ac6105a7f717f.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-cd56ed20317d96f0bca15a6696823d74f61a36d0.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-da84678bca977db7b43515a56ae09e5d60d7a6d4.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-5f4029e1c849c85e5e9bde6ae45c422e6043eccf.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="607d961caf1a59b6e782724654c1f3229e036c20">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-349ffd422610f539f5312f3344bfd662a0e81e31.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="055783146ba9654a725442563be78cad303aad1f">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-56ac4b23486bf93d0dd7e88ab9d4be469f88b30f.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-e8d4d33e48c68ff58c766d166615d7107368de78.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-73df073f3d9f687b5b8d7a3a3dbe39c02fb79535.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-b75b77ad6c17b51bff37afa6f85817654a81a78d.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-fd56c8808f2290b3f48791ad48f235a8c93eb8b0.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-6a864c26125e1fd3ae6e055cb0fe91c10358f08d.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-daa5d8cd09a37fdffb4cc19ac715f33667e56752.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/src/main/java/lib/built.io-1.0.0.27.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="35b4fcce7a331e53936186dc9a3d422313137da0">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/built.io-1.0.0.27-0605433deab5234aabb542d2dae00a4aec2f1fd2.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-85108c641af21881a8a8c597083eaf25d2eee248.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-6698baf25b506cedfff6fc4b3e5338f3f565802d.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-34d77063b9483af77b142a8512c19c847a1119bf.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-d74efaef8465d0054627212c9afd459c199d55aa.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.2-2ad871e03bd3d6bd0d0d86cb9686bf0bb946cdc8.jar" />
+    </item>
+    <item
+        jar="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/exploded-aar/Photos/facebook/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c39a1cb8ada9c26efd053db08732e074dc11965b">
+        <dex dex="/Users/eshan/Documents/277/Git/Photos/app/build/intermediates/pre-dexed/debug/classes-bc79cfef0886e438358657264b9867007ed3ccce.jar" />
     </item>
 
 </items>
