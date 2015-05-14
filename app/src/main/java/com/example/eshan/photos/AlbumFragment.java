@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+import com.raweng.built.Built;
 import com.raweng.built.BuiltError;
 import com.raweng.built.BuiltObject;
 import com.raweng.built.BuiltQuery;
@@ -144,6 +145,7 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
     }
 
     private void fetchData(int skipSize){
+
         BuiltQuery query = new BuiltQuery("album");
         query.skip(skipSize);
         query.limit(LIMIT);
@@ -237,7 +239,13 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
 
         else if(v.getTag().equals(TAG_ALBUM_BUTTON))
         {
-            Toast.makeText(getActivity(), "Album Button", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "Album Button", Toast.LENGTH_SHORT).show();
+            Bundle bundle = new Bundle();
+            AddAlbumFragment addAlbumFragment = new AddAlbumFragment();
+            addAlbumFragment.setArguments(bundle);
+            FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+            transaction.replace(R.id.mainContent,addAlbumFragment);
+            transaction.commit();
         }
 
     }

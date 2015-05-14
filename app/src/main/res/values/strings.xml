@@ -18,5 +18,7 @@
     <string name="title_activity_album_demo">AlbumDemo</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_photo">PhotoActivity</string>
+    <string name="add_album">Add Album</string>
+
 
 </resources>

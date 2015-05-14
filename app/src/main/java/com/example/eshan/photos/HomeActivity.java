@@ -86,7 +86,7 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
     private int totalObjects;
     private final static int LIMIT = 12;
     private int totalPage ;
-    public String useremail;
+    public static String useremail;
     public String userprofilepicNew;
     FragmentManager manager;
 
