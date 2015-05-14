@@ -1,6 +1,7 @@
 package com.example.eshan.photos;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.raweng.built.Built;
 import com.raweng.built.BuiltApplication;
@@ -97,23 +99,32 @@ public class AddAlbumFragment extends Fragment implements View.OnClickListener{
             Log.i("desc",album_desc);
             BuiltObject albumObject = new BuiltObject("album");
             //albumObject.setApplication("blt643f5d49ff2042cb", "0000011");
-            albumObject.set("name",album_name);
+            Object albumName = album_name;
+            albumObject.set("name",albumName);
+            Object albumDesc = album_desc;
+            albumObject.set("description",albumDesc);
+            Object email = HomeActivity.useremail;
+            albumObject.set("email",email);
             //albumObject.set("description",(Object)album_desc);
             //albumObject.set("email",HomeActivity.useremail);
             albumObject.save(new BuiltResultCallBack() {
                 @Override
                 public void onSuccess() {
-                    Log.i("Succcess", "Album created");
+                    AlbumFragment albumFragment = new AlbumFragment();
+                    FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.mainContent,albumFragment);
+                    transaction.commit();
+                    Toast.makeText(getActivity(), "Album created successfully.", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onError(BuiltError builtError) {
-                    Log.i("error", builtError.getErrorMessage());
+                    Toast.makeText(getActivity(), "Album creation failed. Try again!", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onAlways() {
-                    Log.i("Succcess", "Album created");
+
                 }
             });
 //            BuiltObject projectObject = BuiltObject.up;
