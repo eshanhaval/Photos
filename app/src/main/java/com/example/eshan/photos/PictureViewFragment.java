@@ -29,10 +29,12 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import com.raweng.built.BuiltError;
 import com.raweng.built.BuiltObject;
 import com.raweng.built.BuiltQuery;
+import com.raweng.built.BuiltResultCallBack;
 import com.raweng.built.BuiltUser;
 import com.raweng.built.QueryResult;
 import com.raweng.built.QueryResultsCallBack;
 
+import org.apache.http.NameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -174,16 +176,17 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
             public void onSuccess(QueryResult queryResultObject) {
                 // the queryResultObject will contain the objects of the class
                 // here's the object we just created
-                pictures = queryResultObject.getResultObjects();
-                Log.i("Image Data", queryResultObject.getResultObjects().get(0).getJSONObject("image").toString());
+                if(queryResultObject.getCount() > 0) {
+                    pictures = queryResultObject.getResultObjects();
+                    Log.i("Image Data", queryResultObject.getResultObjects().get(0).getJSONObject("image").toString());
 
-                for (BuiltObject object : pictures) {
-                    Log.i("Data", "Name " + object.get("name"));
-                    Log.i("Data", "Title " + object.get("caption"));
+                    for (BuiltObject object : pictures) {
+                        Log.i("Data", "Name " + object.get("name"));
+                        Log.i("Data", "Title " + object.get("caption"));
+                    }
+                    totalObjects = pictures.size();
+                    totalPage = (int) Math.ceil(totalObjects / (double) LIMIT);
                 }
-                totalObjects = pictures.size();
-                totalPage = (int) Math.ceil(totalObjects / (double) LIMIT);
-
             }
 
 
@@ -200,8 +203,12 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
             public void onAlways() {
                 // write code here that you want to execute
                 // regardless of success or failure of the operation
-                if (pictures.size() > 0) {
-                    updatePictures(pictures);
+                if(pictures != null){
+                    if (pictures.size() > 0) {
+                        updatePictures(pictures);
+                   }
+                }else{
+                    Toast.makeText(getActivity(), "Nothing to show", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -261,11 +268,15 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
 
         else if (v.getTag().equals(TAG_PHOTO_BUTTON)) {
             //Toast.makeText(getActivity(), "Photo Button", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(
-                    Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            Bundle bundle = new Bundle();
+            bundle.putString("album",album_name);
+            bundle.putString("email",HomeActivity.useremail);
+            AddPictureFragment addPictureFragment = new AddPictureFragment();
+            addPictureFragment.setArguments(bundle);
+            FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+            transaction.replace(R.id.mainContent,addPictureFragment);
+            transaction.commit();
 
-            startActivityForResult(i, 1);
 
         }
     }
@@ -276,19 +287,56 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
 
         Log.d("resultcode",String.valueOf(resultCode));
 
+
         if (requestCode == 1 && resultCode == -1 && null != data) {
             Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            //String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-            Cursor cursor = getActivity().getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
+            //Cursor cursor = getActivity().getContentResolver().query(selectedImage,
+              //      filePathColumn, null, null, null);
+            //cursor.moveToFirst();
 
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
+            //int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            //String picturePath = cursor.getString(columnIndex);
+            //cursor.close();
 
-            Log.d("picturepath",picturePath);
+            //List<NameValuePair> params = new ArrayList<NameValuePair>(1);
+
+            Log.d("picturepath",selectedImage.getPath());
+
+
+//            BuiltObject albumObject = new BuiltObject("album");
+//            //albumObject.setApplication("blt643f5d49ff2042cb", "0000011");
+//            Object albumName = album_name;
+//            albumObject.set("name",albumName);
+//            Object albumDesc = album_desc;
+//            albumObject.set("description",albumDesc);
+//            Object email = HomeActivity.useremail;
+//            albumObject.set("email",email);
+//            //albumObject.set("description",(Object)album_desc);
+//            //albumObject.set("email",HomeActivity.useremail);
+//            albumObject.save(new BuiltResultCallBack() {
+//                @Override
+//                public void onSuccess() {
+//                    AlbumFragment albumFragment = new AlbumFragment();
+//                    FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.mainContent,albumFragment);
+//                    transaction.commit();
+//                    Toast.makeText(getActivity(), "Album created successfully.", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                @Override
+//                public void onError(BuiltError builtError) {
+//                    Toast.makeText(getActivity(), "Album creation failed. Try again!", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                @Override
+//                public void onAlways() {
+//
+//                }
+//            });
+
+
             //ImageView imageView = (ImageView) getView().findViewById(R.id.imgView);
             //imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 

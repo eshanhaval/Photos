@@ -27,5 +27,4 @@ dependencies {
     compile files('src/main/java/lib/android-smart-image-view-1.0.0.jar')
     compile files('src/main/java/lib/built.io-1.0.0.27.jar')
     compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
-
 }

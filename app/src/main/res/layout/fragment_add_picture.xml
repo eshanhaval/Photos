@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eshan.photos.AddPictureFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/picname"
+            android:layout_alignParentStart="true"
+            android:hint="Enter picture name"
+            android:textAlignment="center"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/piccaption"
+            android:layout_alignParentStart="true"
+            android:hint="Enter Caption"
+            android:textAlignment="center"
+            android:layout_below="@id/picname"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/location"
+            android:layout_alignParentStart="true"
+            android:hint="Enter Location"
+            android:textAlignment="center"
+            android:layout_below="@id/piccaption"
+            />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Picture"
+            android:id="@+id/picpath"
+            android:layout_below="@+id/location" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Picture"
+            android:id="@+id/addpicbutton"
+            android:layout_below="@+id/picpath" />
+    </RelativeLayout>
+
+</FrameLayout>
