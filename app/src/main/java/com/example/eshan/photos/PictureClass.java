@@ -14,10 +14,11 @@ public class PictureClass {
     public String location;
     public String imageUrl;
 
-    public PictureClass(String name,String caption,String url){
+    public PictureClass(String name,String caption,String url,String location){
         this.name = name;
         this.caption = caption;
 //        this.thumbnail = thumbnail;
         this.imageUrl = url;
+        this.location = location;
     }
 }

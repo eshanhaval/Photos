@@ -89,7 +89,7 @@ public class SearchActivity extends ActionBarActivity implements View.OnClickLis
                 e.printStackTrace();
             }
             Log.i("URL",url);
-            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url );
+            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url, obj.getString("location") );
             dataItems.add(objPic);
 
         }

@@ -147,6 +147,7 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if (position == 0) {
+                    HomeActivity.actionMenu.close(true);
                     AlbumFragment albumFragment = new AlbumFragment();
                     manager = getFragmentManager();
                     FragmentTransaction transaction = manager.beginTransaction();
@@ -156,6 +157,7 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
                 } else {
 
                     if (position == 1) {
+                        HomeActivity.actionMenu.close(true);
                         SharedAlbumFragment sharedAlbumFragment = new SharedAlbumFragment();
                         manager = getFragmentManager();
                         FragmentTransaction transaction = manager.beginTransaction();
@@ -165,6 +167,7 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
                     }
 
                     if (position == 2) {
+                        HomeActivity.actionMenu.close(true);
                         SearchFragment searchFragment = new SearchFragment();
                         manager = getFragmentManager();
                         FragmentTransaction transaction = manager.beginTransaction();
@@ -174,6 +177,7 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
                     }
                     if(position==3)
                     {
+                        HomeActivity.actionMenu.close(true);
                         try
                         { Intent i = new Intent(Intent.ACTION_SEND);
                             i.setType("text/plain");
@@ -219,7 +223,8 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
         AlbumFragment albumFragment = new AlbumFragment();
         manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.mainContent, albumFragment, "albumFragment");
+        transaction.replace(R.id.mainContent, albumFragment);
+
         transaction.commit();
 
 

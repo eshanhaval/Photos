@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.raweng.built.Built;
 import com.raweng.built.BuiltApplication;
 import com.raweng.built.BuiltError;
@@ -101,7 +102,7 @@ public class AddPictureFragment extends Fragment implements View.OnClickListener
         picButton.setTag(TAG_SELECT_BUTTON);
         addButton.setTag(TAG_ADD_BUTTON);
 
-
+        HomeActivity.actionButton.detach();
         // Inflate the layout for this fragment
         return rootView;
     }

@@ -12,11 +12,13 @@ import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -139,10 +141,10 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
         }
 
         ImageView addPhoto = new ImageView(getActivity());
-        addPhoto.setImageResource(R.drawable.photos);
+        addPhoto.setImageResource(R.drawable.photosdrawable);
 
         ImageView shareAlbum = new ImageView(getActivity());
-        addPhoto.setImageResource(R.drawable.shareimg);
+        shareAlbum.setImageResource(R.drawable.shareimgsmall);
 
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(getActivity());
 
@@ -152,18 +154,22 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
         addPhotoButton.setLayoutParams(new ViewGroup.LayoutParams(150, 150));
 
         SubActionButton shareAlbumButton = itemBuilder.setContentView(shareAlbum).build();
-        addPhotoButton.setOnClickListener(this);
-        addPhotoButton.setTag(TAG_SHARE_ALBUM_BUTTON);
-        addPhotoButton.setLayoutParams(new ViewGroup.LayoutParams(150, 150));
+        shareAlbumButton.setOnClickListener(this);
+        shareAlbumButton.setTag(TAG_SHARE_ALBUM_BUTTON);
+        shareAlbumButton.setLayoutParams(new ViewGroup.LayoutParams(150, 150));
 
         HomeActivity.actionMenu = new FloatingActionMenu.Builder(getActivity())
-                .addSubActionView(addPhotoButton)
                 .addSubActionView(shareAlbumButton)
+                .addSubActionView(addPhotoButton)
                 .attachTo(HomeActivity.actionButton)
                 .build();
 
-
-
+        HomeActivity.actionButton.detach();
+        if(getArguments().containsKey("parent")) {
+            if (getArguments().getString("parent").equalsIgnoreCase("myalbum")) {
+                HomeActivity.actionButton.attach(new FrameLayout.LayoutParams(150, 150, Gravity.BOTTOM | Gravity.RIGHT));
+            }
+        }
 
         return rootView;
     }
@@ -251,7 +257,7 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
                 e.printStackTrace();
             }
             Log.i("URL",url);
-            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url );
+            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url,obj.getString("location") );
             dataItems.add(objPic);
 
         }
@@ -285,6 +291,7 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
 
         else if (v.getTag().equals(TAG_PHOTO_BUTTON)) {
             //Toast.makeText(getActivity(), "Photo Button", Toast.LENGTH_SHORT).show();
+            HomeActivity.actionMenu.close(true);
             Bundle bundle = new Bundle();
             bundle.putString("album",album_name);
             bundle.putString("email",HomeActivity.useremail);
@@ -299,6 +306,7 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
 
         else if(v.getTag().equals(TAG_SHARE_ALBUM_BUTTON))
         {
+            HomeActivity.actionMenu.close(true);
             Bundle bundle = new Bundle();
             bundle.putString("album_name",album_name);
             bundle.putString("album_unique_id",getArguments().getString("album_unique_id"));
@@ -400,9 +408,14 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
         pictureIntent.putExtra("caption",objPicture.caption);
         startActivity(pictureIntent);
         */
+        HomeActivity.actionMenu.close(true);
         Bundle bundle = new Bundle();
         bundle.putString("image",objPicture.imageUrl);
         bundle.putString("caption",objPicture.caption);
+        bundle.putString("albumEmail",getArguments().getString("albumEmail"));
+        bundle.putString("album_name",getArguments().getString("album_name"));
+        bundle.putString("picture_name",objPicture.name);
+        bundle.putString("picture_location",objPicture.location);
         PhotoFragment photoFragment = new PhotoFragment();
         photoFragment.setArguments(bundle);
         FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();

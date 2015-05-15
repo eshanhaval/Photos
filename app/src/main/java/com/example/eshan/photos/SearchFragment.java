@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.raweng.built.Built;
 import com.raweng.built.BuiltError;
@@ -50,6 +51,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
 
     BuiltUser builtUserObject = new BuiltUser();
     private List<PictureClass> dataItems;
+    private List<PictureClass> dataItemsClear;
     private GridPictureViewAdapter adapter;
     private EditText searchText;
     private Button btn;
@@ -92,6 +94,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         dataItems = new ArrayList<PictureClass>();
+        dataItemsClear = new ArrayList<PictureClass>();
 
         try {
             Built.initializeWithApiKey(getActivity(), "blt643f5d49ff2042cb", "0000011");
@@ -102,6 +105,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
         searchText = (EditText)rootView.findViewById(R.id.editText);
         btn = (Button)rootView.findViewById(R.id.button);
         btn.setOnClickListener(this);
+        HomeActivity.actionButton.detach();
 
         return rootView;
     }
@@ -158,15 +162,18 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
                 e.printStackTrace();
             }
             Log.i("URL",url);
-            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url );
+            PictureClass objPic = new PictureClass(obj.get("name").toString(), obj.get("caption").toString(),url , obj.getString("location"));
+            dataItems.clear();
             dataItems.add(objPic);
 
         }
 
         Log.i("Size"," "+dataItems.size());
 
-        adapter = new GridPictureViewAdapter(getActivity(), dataItems);
+
         GridView gridView = (GridView) getView().findViewById(R.id.gridView2);
+        adapter = new GridPictureViewAdapter(getActivity(), dataItems);
+
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
     }
@@ -203,8 +210,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
         ArrayList andQuery = new ArrayList();
 
 
-        q1.where("email", CustomDataClass.email);
-        q2.containedIn("shared_with", new String[]{CustomDataClass.email});
+        q1.where("email", HomeActivity.useremail);
+        q2.where("shared_with", HomeActivity.useremail);
 
         q3.where("name",search_text);
         q4.where("caption",search_text);
@@ -222,6 +229,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
 
         q7.and(andQuery);
 
+        q7.includeCount();
 
         q7.exec(new QueryResultsCallBack() {
             List<BuiltObject> pictures;
@@ -229,10 +237,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
             public void onSuccess(QueryResult queryResultObject) {
                 // the queryResultObject will contain the objects of the class
                 // here's the object we just created
-                pictures = queryResultObject.getResultObjects();
-                for(BuiltObject object : pictures){
-                    Log.i("Data","Name "+object.get("name"));
-                    Log.i("Data","Caption "+object.get("caption"));
+                if(queryResultObject.getCount() > 0) {
+                    pictures = queryResultObject.getResultObjects();
+
+                    for (BuiltObject object : pictures) {
+                        Log.i("Data", "Name " + object.get("name"));
+                        Log.i("Data", "Caption " + object.get("caption"));
+                    }
                 }
             }
 
@@ -249,8 +260,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Ad
             public void onAlways() {
                 // write code here that you want to execute
                 // regardless of success or failure of the operation
-                if(pictures.size() > 0){
-                    updateData(pictures);
+
+                if(pictures != null){
+                    if (pictures.size() > 0) {
+                        updateData(pictures);
+                    }
+                }else{
+                    Toast.makeText(getActivity(), "Nothing to show", Toast.LENGTH_SHORT).show();
                 }
             }
         });

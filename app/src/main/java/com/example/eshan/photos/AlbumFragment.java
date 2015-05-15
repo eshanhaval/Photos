@@ -7,11 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -138,7 +140,9 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
                 .attachTo(HomeActivity.actionButton)
                 .build();
 
-
+        //FrameLayout.LayoutParams layoutParams = new LayoutParams(size, size, Gravity.BOTTOM | Gravity.RIGHT);
+        HomeActivity.actionButton.detach();
+            HomeActivity.actionButton.attach(new FrameLayout.LayoutParams(150, 150, Gravity.BOTTOM | Gravity.RIGHT));
 
         return rootView;
 
@@ -216,9 +220,12 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
 
         startActivity(pictureIntent);
         */
+        HomeActivity.actionMenu.close(true);
         Bundle bundle = new Bundle();
         bundle.putString("album_name", objAlbum.title);
         bundle.putString("album_unique_id",objAlbum.uniqueId);
+        bundle.putString("parent","myalbum");
+        bundle.putString("albumEmail",objAlbum.email);
         PictureViewFragment pictureViewFragment = new PictureViewFragment();
         pictureViewFragment.setArguments(bundle);
         FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
@@ -248,6 +255,7 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
         else if(v.getTag().equals(TAG_ALBUM_BUTTON))
         {
 //            Toast.makeText(getActivity(), "Album Button", Toast.LENGTH_SHORT).show();
+            HomeActivity.actionMenu.close(true);
             Bundle bundle = new Bundle();
             AddAlbumFragment addAlbumFragment = new AddAlbumFragment();
             addAlbumFragment.setArguments(bundle);
@@ -263,7 +271,7 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
 
 
         for(BuiltObject obj : albums){
-            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(),obj.get("description").toString(),getResources().getDrawable(R.drawable.album),obj.getUid().toString());
+            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(),obj.get("description").toString(),getResources().getDrawable(R.drawable.album),obj.getUid().toString(),obj.getString("email"));
             dataItems.add(objAlbum);
         }
 

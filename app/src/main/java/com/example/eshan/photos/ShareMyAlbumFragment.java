@@ -82,6 +82,8 @@ public class ShareMyAlbumFragment extends Fragment implements View.OnClickListen
         searchText = (EditText)rootView.findViewById(R.id.editTextName);
         btn = (Button)rootView.findViewById(R.id.buttonShare);
         btn.setOnClickListener(this);
+        HomeActivity.actionMenu.close(true);
+        HomeActivity.actionButton.detach();
         return rootView;
     }
 
@@ -126,7 +128,8 @@ public class ShareMyAlbumFragment extends Fragment implements View.OnClickListen
                 AlbumFragment albumFragment = new AlbumFragment();
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.add(R.id.mainContent, albumFragment, "albumFragment");
+
+                transaction.replace(R.id.mainContent, albumFragment);
                 transaction.commit();
 
             }

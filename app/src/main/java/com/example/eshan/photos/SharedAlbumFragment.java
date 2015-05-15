@@ -137,7 +137,7 @@ public class SharedAlbumFragment extends Fragment implements AdapterView.OnItemC
                 .build();
 
         */
-
+        HomeActivity.actionButton.detach();
         return rootView;
 
     }
@@ -216,6 +216,8 @@ public class SharedAlbumFragment extends Fragment implements AdapterView.OnItemC
         */
         Bundle bundle = new Bundle();
         bundle.putString("album_name", objAlbum.title);
+        bundle.putString("albumEmail",objAlbum.email);
+        bundle.putString("parent","sharedalbum");
         PictureViewFragment pictureViewFragment = new PictureViewFragment();
         pictureViewFragment.setArguments(bundle);
         FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
@@ -262,7 +264,7 @@ public class SharedAlbumFragment extends Fragment implements AdapterView.OnItemC
 
 
         for(BuiltObject obj : albums){
-            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(),obj.get("description").toString(),getResources().getDrawable(R.drawable.album), obj.getUid());
+            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(), obj.get("description").toString(),getResources().getDrawable(R.drawable.album), obj.getUid(),obj.getString("email"));
             dataItems.add(objAlbum);
         }
 

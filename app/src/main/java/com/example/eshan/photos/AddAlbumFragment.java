@@ -86,6 +86,7 @@ public class AddAlbumFragment extends Fragment implements View.OnClickListener{
         albumNameEditView = (EditText)rootView.findViewById(R.id.albumname);
         albumDescEditView = (EditText)rootView.findViewById(R.id.albumdesc);
 
+        HomeActivity.actionButton.detach();
         return rootView;
     }
 
