@@ -154,6 +154,16 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
 
                     transaction.commit();
                 } else {
+
+                    if (position == 1) {
+                        SharedAlbumFragment sharedAlbumFragment = new SharedAlbumFragment();
+                        manager = getFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.mainContent, sharedAlbumFragment);
+
+                        transaction.commit();
+                    }
+
                     if (position == 2) {
                         SearchFragment searchFragment = new SearchFragment();
                         manager = getFragmentManager();

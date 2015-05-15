@@ -170,9 +170,17 @@ public class PictureViewActivity extends ActionBarActivity implements AdapterVie
 
     private void fetchPictures(int skipSize) {
         BuiltQuery query = new BuiltQuery("picture");
+        BuiltQuery query2 = new BuiltQuery("picture");
+        BuiltQuery query3 = new BuiltQuery("picture");
 
-        query.where("album",album_name);
+        ArrayList<BuiltQuery> andQuery = new ArrayList<BuiltQuery>();
 
+        query.where("email",HomeActivity.useremail);
+        //query3.where("album",album_name);
+
+        andQuery.add(query2);
+        andQuery.add(query3);
+        //query.and(andQuery);
 //        query.limit(4);
 //        query.skip(skipSize);
 

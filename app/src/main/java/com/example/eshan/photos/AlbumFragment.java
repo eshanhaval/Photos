@@ -147,6 +147,9 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
     private void fetchData(int skipSize){
 
         BuiltQuery query = new BuiltQuery("album");
+        Log.d("userenamil:",HomeActivity.useremail);
+        query.where("email",HomeActivity.useremail);
+
         query.skip(skipSize);
         query.limit(LIMIT);
         query.includeCount();
@@ -158,15 +161,21 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
             public void onSuccess(QueryResult queryResultObject) {
                 // the queryResultObject will contain the objects of the class
                 // here's the object we just created
-                albums = queryResultObject.getResultObjects();
-                Log.i("Count", " " + queryResultObject.getCount());
-                totalObjects = queryResultObject.getCount();
-                totalPage = (int) Math.ceil(totalObjects / (double) LIMIT);
-                for (BuiltObject object : albums) {
-                    Log.i("Data", "Name " + object.get("name"));
-                    Log.i("Data", "Title " + object.get("description"));
+                if (queryResultObject.getResultObjects().size() > 0) {
+                    albums = queryResultObject.getResultObjects();
+                    Log.i("Count", " " + queryResultObject.getCount());
+                    totalObjects = queryResultObject.getCount();
+                    totalPage = (int) Math.ceil(totalObjects / (double) LIMIT);
+                    for (BuiltObject object : albums) {
+                        Log.i("Data", "Name " + object.get("name"));
+                        Log.i("Data", "Title " + object.get("description"));
 
+                    }
+                    if (albums.size() > 0) {
+                        updateData(albums);
+                    }
                 }
+
             }
 
             @Override
@@ -182,9 +191,7 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
             public void onAlways() {
                 // write code here that you want to execute
                 // regardless of success or failure of the operation
-                if (albums.size() > 0) {
-                    updateData(albums);
-                }
+
             }
         });
 //
@@ -210,11 +217,12 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
         startActivity(pictureIntent);
         */
         Bundle bundle = new Bundle();
-        bundle.putString("album_name",objAlbum.title);
+        bundle.putString("album_name", objAlbum.title);
+        bundle.putString("album_unique_id",objAlbum.uniqueId);
         PictureViewFragment pictureViewFragment = new PictureViewFragment();
         pictureViewFragment.setArguments(bundle);
         FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
-        transaction.replace(R.id.mainContent,pictureViewFragment);
+        transaction.replace(R.id.mainContent, pictureViewFragment);
         transaction.commit();
 
     }
@@ -255,7 +263,7 @@ public class AlbumFragment extends Fragment implements AdapterView.OnItemClickLi
 
 
         for(BuiltObject obj : albums){
-            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(),obj.get("description").toString(),getResources().getDrawable(R.drawable.album));
+            AlbumClass objAlbum = new AlbumClass(obj.get("name").toString(),obj.get("description").toString(),getResources().getDrawable(R.drawable.album),obj.getUid().toString());
             dataItems.add(objAlbum);
         }
 

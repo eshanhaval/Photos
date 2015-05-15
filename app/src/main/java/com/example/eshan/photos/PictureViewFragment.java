@@ -78,6 +78,7 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public final static String TAG_PHOTO_BUTTON = "photo_button";
+    public static final String TAG_SHARE_ALBUM_BUTTON = "share_album_button";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -140,15 +141,24 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
         ImageView addPhoto = new ImageView(getActivity());
         addPhoto.setImageResource(R.drawable.photos);
 
+        ImageView shareAlbum = new ImageView(getActivity());
+        addPhoto.setImageResource(R.drawable.shareimg);
+
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(getActivity());
+
         SubActionButton addPhotoButton = itemBuilder.setContentView(addPhoto).build();
         addPhotoButton.setOnClickListener(this);
         addPhotoButton.setTag(TAG_PHOTO_BUTTON);
         addPhotoButton.setLayoutParams(new ViewGroup.LayoutParams(150, 150));
 
+        SubActionButton shareAlbumButton = itemBuilder.setContentView(shareAlbum).build();
+        addPhotoButton.setOnClickListener(this);
+        addPhotoButton.setTag(TAG_SHARE_ALBUM_BUTTON);
+        addPhotoButton.setLayoutParams(new ViewGroup.LayoutParams(150, 150));
+
         HomeActivity.actionMenu = new FloatingActionMenu.Builder(getActivity())
                 .addSubActionView(addPhotoButton)
-
+                .addSubActionView(shareAlbumButton)
                 .attachTo(HomeActivity.actionButton)
                 .build();
 
@@ -160,14 +170,20 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
 
     private void fetchPictures(int skipSize) {
         BuiltQuery query = new BuiltQuery("picture");
+        BuiltQuery query2 = new BuiltQuery("picture");
+        BuiltQuery query3 = new BuiltQuery("picture");
 
-        query.where("album",album_name);
+        ArrayList<BuiltQuery> andQuery = new ArrayList<BuiltQuery>();
+        query2.where("email",HomeActivity.useremail);
+        query3.where("album",album_name);
 
-//        query.limit(4);
-//        query.skip(skipSize);
+        andQuery.add(query2);
+        andQuery.add(query3);
+        query.and(andQuery);
 
         query.limit(LIMIT);
         query.skip(skipSize);
+        query.includeCount();
 
         query.exec(new QueryResultsCallBack() {
             List<BuiltObject> pictures;
@@ -176,6 +192,7 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
             public void onSuccess(QueryResult queryResultObject) {
                 // the queryResultObject will contain the objects of the class
                 // here's the object we just created
+                Log.d("count size",String.valueOf(queryResultObject.getCount()));
                 if(queryResultObject.getCount() > 0) {
                     pictures = queryResultObject.getResultObjects();
                     Log.i("Image Data", queryResultObject.getResultObjects().get(0).getJSONObject("image").toString());
@@ -275,6 +292,20 @@ public class PictureViewFragment extends Fragment implements AdapterView.OnItemC
             addPictureFragment.setArguments(bundle);
             FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
             transaction.replace(R.id.mainContent,addPictureFragment);
+            transaction.commit();
+
+
+        }
+
+        else if(v.getTag().equals(TAG_SHARE_ALBUM_BUTTON))
+        {
+            Bundle bundle = new Bundle();
+            bundle.putString("album_name",album_name);
+            bundle.putString("album_unique_id",getArguments().getString("album_unique_id"));
+            ShareMyAlbumFragment shareMyAlbumFragment = new ShareMyAlbumFragment();
+            shareMyAlbumFragment.setArguments(bundle);
+            FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+            transaction.replace(R.id.mainContent,shareMyAlbumFragment);
             transaction.commit();
 
 
